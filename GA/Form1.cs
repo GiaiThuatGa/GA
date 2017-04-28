@@ -69,7 +69,29 @@ namespace GA
             file.Close();
             MessageBox.Show("Ghi thành công");
         }
+        const int P01 = 43;
+        const int Lc = 0;
+        const int Lf1 = 0;
+        const int Ld = 0;
+        const int G1 = 18;
+        const int Pi2 = -72;
+        const int G2 = 0;
+        const int Lf2 = 0;
 
+        const Double hm = 1.5;
+        const int f = 2100;
+        const int fc = f;
+        const int cm = 3;
+        public Double HeSoHieuChinhDoCaoAnTenDiDong()
+        {
+            return (1.1 * Math.Log10(f) - 0.7) * hm - (1.56 * Math.Log10(f) - 0.8);
+        }
+        public void TinhBanKinhPhu(Tram tram)
+        {
+            int Lp = P01 - Lc - Lf1 - Ld + G1 - Pi2 + G2 - Lf2;
+            Double d = Math.Pow(10, (Lp - 46.3 - 33.9 * Math.Log10(f) + 13.82 * Math.Log10(tram.DoCao) + HeSoHieuChinhDoCaoAnTenDiDong() -cm) / ((44.9 - 6.55 * Math.Log10(tram.DoCao))));
+
+        }
         private void btnTinhKC_Click(object sender, EventArgs e)
         {
             int n = trams.Count;
