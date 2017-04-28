@@ -72,12 +72,20 @@ namespace GA
 
         private void btnTinhKC_Click(object sender, EventArgs e)
         {
-            //int n = trams.Count;
-            //for (int i = 0; i < n; i++)
-            //    for (int j = 0; j < n; j++)
-            //    {
-
-            //    }
+            int n = trams.Count;
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    if (i!=j)
+                    {
+                        Pair temp = new Pair();
+                        temp.MaTram1 = trams[i].MaTram;
+                        temp.MaTram2 = trams[j].MaTram;
+                        double khoangCach = (Math.Acos(Math.Sin(trams[i].Latitude*Math.PI/180)*Math.Sin(trams[j].Latitude*Math.PI/180)+Math.Cos(trams[i].Latitude*Math.PI/180)*Math.Cos(trams[j].Latitude*Math.PI/180)*Math.Cos((-1*trams[i].Longitude*Math.PI/180)-(-1*trams[j].Longitude*Math.PI/180))))*( 20000000/Math.PI)/1000     ;
+                        temp.KhoangCach = khoangCach;
+                        D.Add(temp);
+                    }
+                }
         }
     }
 }
