@@ -89,7 +89,7 @@ namespace GA
 
         }
 
-        }
+        
         private void btnTinhKC_Click(object sender, EventArgs e)
         {
             int n = trams.Count;
