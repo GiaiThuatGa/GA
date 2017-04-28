@@ -19,10 +19,10 @@ namespace GA
 
         public struct Tram
         {
-         public   String MaTram;
-         public   Double Longitude;
-         public   Double Latitude;
-         public  Double DoCao;
+         public String MaTram;
+         public Double Longitude;
+         public Double Latitude;
+         public Double DoCao;
         }
 
         struct Pair
@@ -50,12 +50,7 @@ namespace GA
                 temp1.DoCao = Double.Parse(temp[3]);
                 trams.Add(temp1);
             }
-
             MessageBox.Show("Đọc thành công");
-
-         
-
-        
         }
 
         private void btnWriteText_Click(object sender, EventArgs e)
@@ -69,6 +64,7 @@ namespace GA
             file.Close();
             MessageBox.Show("Ghi thành công");
         }
+
         const int P01 = 43;
         const int Lc = 0;
         const int Lf1 = 0;
@@ -89,7 +85,9 @@ namespace GA
         public void TinhBanKinhPhu(Tram tram)
         {
             int Lp = P01 - Lc - Lf1 - Ld + G1 - Pi2 + G2 - Lf2;
-            Double d = Math.Pow(10, (Lp - 46.3 - 33.9 * Math.Log10(f) + 13.82 * Math.Log10(tram.DoCao) + HeSoHieuChinhDoCaoAnTenDiDong() -cm) / ((44.9 - 6.55 * Math.Log10(tram.DoCao))));
+            Double d = Math.Pow(10, (Lp - 46.3 - 33.9 * Math.Log10(f) + 13.82 * Math.Log10(tram.DoCao) + HeSoHieuChinhDoCaoAnTenDiDong() - cm) / ((44.9 - 6.55 * Math.Log10(tram.DoCao))));
+
+        }
 
         }
         private void btnTinhKC_Click(object sender, EventArgs e)
@@ -108,6 +106,11 @@ namespace GA
                         D.Add(temp);
                     }
                 }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
