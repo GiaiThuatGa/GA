@@ -35,9 +35,10 @@
             // 
             // btnReadText
             // 
-            this.btnReadText.Location = new System.Drawing.Point(58, 30);
+            this.btnReadText.Location = new System.Drawing.Point(155, 72);
+            this.btnReadText.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnReadText.Name = "btnReadText";
-            this.btnReadText.Size = new System.Drawing.Size(75, 42);
+            this.btnReadText.Size = new System.Drawing.Size(200, 100);
             this.btnReadText.TabIndex = 0;
             this.btnReadText.Text = "Đọc Text";
             this.btnReadText.UseVisualStyleBackColor = true;
@@ -45,9 +46,10 @@
             // 
             // btnWriteText
             // 
-            this.btnWriteText.Location = new System.Drawing.Point(195, 30);
+            this.btnWriteText.Location = new System.Drawing.Point(520, 72);
+            this.btnWriteText.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnWriteText.Name = "btnWriteText";
-            this.btnWriteText.Size = new System.Drawing.Size(75, 42);
+            this.btnWriteText.Size = new System.Drawing.Size(200, 100);
             this.btnWriteText.TabIndex = 0;
             this.btnWriteText.Text = "Ghi Text";
             this.btnWriteText.UseVisualStyleBackColor = true;
@@ -55,9 +57,10 @@
             // 
             // btnTinhKC
             // 
-            this.btnTinhKC.Location = new System.Drawing.Point(58, 130);
+            this.btnTinhKC.Location = new System.Drawing.Point(155, 310);
+            this.btnTinhKC.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnTinhKC.Name = "btnTinhKC";
-            this.btnTinhKC.Size = new System.Drawing.Size(102, 42);
+            this.btnTinhKC.Size = new System.Drawing.Size(272, 100);
             this.btnTinhKC.TabIndex = 0;
             this.btnTinhKC.Text = "Tính khoảng cách";
             this.btnTinhKC.UseVisualStyleBackColor = true;
@@ -65,14 +68,16 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 281);
+            this.ClientSize = new System.Drawing.Size(1064, 670);
             this.Controls.Add(this.btnTinhKC);
             this.Controls.Add(this.btnWriteText);
             this.Controls.Add(this.btnReadText);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
