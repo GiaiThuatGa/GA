@@ -31,11 +31,13 @@
             this.btnReadText = new System.Windows.Forms.Button();
             this.btnWriteText = new System.Windows.Forms.Button();
             this.btnTinhKC = new System.Windows.Forms.Button();
+            this.txt1 = new System.Windows.Forms.TextBox();
+            this.txt2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnReadText
             // 
-            this.btnReadText.Location = new System.Drawing.Point(155, 72);
+            this.btnReadText.Location = new System.Drawing.Point(14, 16);
             this.btnReadText.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnReadText.Name = "btnReadText";
             this.btnReadText.Size = new System.Drawing.Size(200, 100);
@@ -46,7 +48,7 @@
             // 
             // btnWriteText
             // 
-            this.btnWriteText.Location = new System.Drawing.Point(520, 72);
+            this.btnWriteText.Location = new System.Drawing.Point(249, 16);
             this.btnWriteText.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnWriteText.Name = "btnWriteText";
             this.btnWriteText.Size = new System.Drawing.Size(200, 100);
@@ -57,20 +59,38 @@
             // 
             // btnTinhKC
             // 
-            this.btnTinhKC.Location = new System.Drawing.Point(155, 310);
+            this.btnTinhKC.Location = new System.Drawing.Point(14, 143);
             this.btnTinhKC.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.btnTinhKC.Name = "btnTinhKC";
-            this.btnTinhKC.Size = new System.Drawing.Size(272, 100);
+            this.btnTinhKC.Size = new System.Drawing.Size(435, 100);
             this.btnTinhKC.TabIndex = 0;
             this.btnTinhKC.Text = "Tính khoảng cách";
             this.btnTinhKC.UseVisualStyleBackColor = true;
             this.btnTinhKC.Click += new System.EventHandler(this.btnTinhKC_Click);
             // 
+            // txt1
+            // 
+            this.txt1.Location = new System.Drawing.Point(14, 278);
+            this.txt1.Multiline = true;
+            this.txt1.Name = "txt1";
+            this.txt1.Size = new System.Drawing.Size(515, 380);
+            this.txt1.TabIndex = 1;
+            // 
+            // txt2
+            // 
+            this.txt2.Location = new System.Drawing.Point(558, 278);
+            this.txt2.Multiline = true;
+            this.txt2.Name = "txt2";
+            this.txt2.Size = new System.Drawing.Size(515, 380);
+            this.txt2.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 670);
+            this.ClientSize = new System.Drawing.Size(1173, 670);
+            this.Controls.Add(this.txt2);
+            this.Controls.Add(this.txt1);
             this.Controls.Add(this.btnTinhKC);
             this.Controls.Add(this.btnWriteText);
             this.Controls.Add(this.btnReadText);
@@ -79,6 +99,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -87,6 +108,8 @@
         private System.Windows.Forms.Button btnReadText;
         private System.Windows.Forms.Button btnWriteText;
         private System.Windows.Forms.Button btnTinhKC;
+        private System.Windows.Forms.TextBox txt1;
+        private System.Windows.Forms.TextBox txt2;
     }
 }
 
