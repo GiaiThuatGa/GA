@@ -147,6 +147,7 @@ namespace GA
                 for (int i = 0; i < 6; i++)
                 {
                     bk1 = BanKinhPhu(con);
+                //    MessageBox.Show(bk1.ToString());
                     bk2 = BanKinhPhu(lancans[i]);
                     KC = KhoangCachHaiTram(con, lancans[i]);
                     Boolean f = (bk1 + bk2 > KC && KC > 2 / 3 * (bk1 + bk2));
@@ -173,6 +174,7 @@ namespace GA
 
         private void btnTinhKC_Click(object sender, EventArgs e)
         {
+            //Them khoang cach cua moi 2 tram trong quan the
             int n = trams.Count;
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
@@ -187,6 +189,8 @@ namespace GA
                         D.Add(temp);
                     }
                 }
+
+            //Xet dieu kien de dua cha me co the vao quan the
             n = D.Count;
             for (int i = 0; i < n; i++)
             {
@@ -197,6 +201,8 @@ namespace GA
                     DuavaoQuanThe(temp);
                 }
             }
+
+            //Ma hoa toa do cua cac cap trong quan the
             n = quanthe.Count;
             for(int i = 0; i<n; i++)
             {
@@ -204,16 +210,18 @@ namespace GA
                 MaHoaToaDo(quanthe[i].tram2);
             }
 
+            //Khoi tao danh sach daxet cho viec xet cac cap
             Boolean[] daxet = new Boolean[n];
             for(int i = 0; i < n; i++)
             {
                 daxet[i] = false;
             }
 
-            Boolean daTimduocConTotnhat = false;
 
-            for(int k = 1; k <= n; k++)
+            Boolean daTimduocConTotnhat = false;
+            for(int k = 1; k < n; k++) // Duyet quan the
             {
+                //Khoi tao id khong trung lap
                 Random random = new Random();
                 int id ;
                 do
@@ -222,6 +230,7 @@ namespace GA
                 } while (daxet[id] == true);
                 daxet[id] = true;
 
+                //Lai ghep
                 Tram con = new Tram();
                 List<Tram> _temp = new List<Tram>();
                 Boolean[] pos = new Boolean[n];
@@ -232,6 +241,7 @@ namespace GA
                 int dosaulap = 1;
                 do
                 {
+                    //Chon cha me de lai ghep
                     _temp.Clear();
                     Tram cha = quanthe[id].tram1;
                     Tram me = quanthe[id].tram2;
@@ -284,7 +294,7 @@ namespace GA
                     Tram tc = new Tram();
                     tc.setLatitude(vd_nst_cha);
                     tc.setLongitude(kd_nst_cha);
-                    if (!_temp.Contains(tc)) _temp.Add(tc);
+                    if (!_temp.Contains(tc)) _temp.Add(tc); //Them con vao
 
                     Tram tm = new Tram();
                     tm.setLatitude(vd_nst_me);
@@ -334,9 +344,14 @@ namespace GA
                     if (!_temp.Contains(tm_biendoigen)) _temp.Add(tm_biendoigen);
                     daTimduocConTotnhat = DieuKienDung(_temp);
                     dosaulap++;
-
-                } while (daTimduocConTotnhat==false && dosaulap <=17);
-                if (daTimduocConTotnhat) return;
+                  //  MessageBox.Show(dosaulap.ToString());
+                } while (daTimduocConTotnhat==false && dosaulap <17);
+             //   MessageBox.Show(n.ToString());
+                if (daTimduocConTotnhat)
+                {
+        //            MessageBox.Show(trams[trams.Count - 1].Longitude + " " + trams[trams.Count - 1].Latitude);
+                    return;
+                }
             }
             //xu ly mang tams
             int vt = 0;
@@ -346,7 +361,7 @@ namespace GA
                 if (tams[i].sotramtoidaphuduoc > tams[vt].sotramtoidaphuduoc) vt = i;
             }
             if(!trams.Contains(tams[vt])) trams.Add(tams[vt]);
-
+      //      MessageBox.Show(trams[trams.Count - 1].Longitude + " " + trams[trams.Count - 1].Latitude);
         } 
 
         private void Form1_Load(object sender, EventArgs e)
