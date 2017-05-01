@@ -29,55 +29,59 @@
         private void InitializeComponent()
         {
             this.btnReadText = new System.Windows.Forms.Button();
-            this.btnWriteText = new System.Windows.Forms.Button();
-            this.btnTinhKC = new System.Windows.Forms.Button();
+            this.btnTimTram = new System.Windows.Forms.Button();
+            this.pnlbitmap = new System.Windows.Forms.Panel();
+            this.pnlbitmap.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnReadText
             // 
-            this.btnReadText.Location = new System.Drawing.Point(14, 16);
-            this.btnReadText.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnReadText.Location = new System.Drawing.Point(15, 6);
+            this.btnReadText.Margin = new System.Windows.Forms.Padding(6);
             this.btnReadText.Name = "btnReadText";
-            this.btnReadText.Size = new System.Drawing.Size(200, 100);
+            this.btnReadText.Size = new System.Drawing.Size(110, 52);
             this.btnReadText.TabIndex = 0;
             this.btnReadText.Text = "Đọc Text";
+            this.btnReadText.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnReadText.UseVisualStyleBackColor = true;
             this.btnReadText.Click += new System.EventHandler(this.btnReadText_Click);
             // 
-            // btnWriteText
+            // btnTimTram
             // 
-            this.btnWriteText.Location = new System.Drawing.Point(249, 16);
-            this.btnWriteText.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnWriteText.Name = "btnWriteText";
-            this.btnWriteText.Size = new System.Drawing.Size(200, 100);
-            this.btnWriteText.TabIndex = 0;
-            this.btnWriteText.Text = "Ghi Text";
-            this.btnWriteText.UseVisualStyleBackColor = true;
-            this.btnWriteText.Click += new System.EventHandler(this.btnWriteText_Click);
+            this.btnTimTram.Location = new System.Drawing.Point(137, 6);
+            this.btnTimTram.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTimTram.Name = "btnTimTram";
+            this.btnTimTram.Size = new System.Drawing.Size(110, 52);
+            this.btnTimTram.TabIndex = 0;
+            this.btnTimTram.Text = "Tìm trạm";
+            this.btnTimTram.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTimTram.UseVisualStyleBackColor = true;
+            this.btnTimTram.Click += new System.EventHandler(this.btnTimTram_Click);
             // 
-            // btnTinhKC
+            // pnlbitmap
             // 
-            this.btnTinhKC.Location = new System.Drawing.Point(14, 143);
-            this.btnTinhKC.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.btnTinhKC.Name = "btnTinhKC";
-            this.btnTinhKC.Size = new System.Drawing.Size(435, 100);
-            this.btnTinhKC.TabIndex = 0;
-            this.btnTinhKC.Text = "Tính khoảng cách";
-            this.btnTinhKC.UseVisualStyleBackColor = true;
-            this.btnTinhKC.Click += new System.EventHandler(this.btnTinhKC_Click);
+            this.pnlbitmap.AutoScroll = true;
+            this.pnlbitmap.Controls.Add(this.btnTimTram);
+            this.pnlbitmap.Controls.Add(this.btnReadText);
+            this.pnlbitmap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlbitmap.Location = new System.Drawing.Point(0, 0);
+            this.pnlbitmap.Name = "pnlbitmap";
+            this.pnlbitmap.Size = new System.Drawing.Size(2548, 1383);
+            this.pnlbitmap.TabIndex = 1;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 257);
-            this.Controls.Add(this.btnTinhKC);
-            this.Controls.Add(this.btnWriteText);
-            this.Controls.Add(this.btnReadText);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.ClientSize = new System.Drawing.Size(2548, 1383);
+            this.Controls.Add(this.pnlbitmap);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "GA";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.pnlbitmap.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -85,8 +89,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnReadText;
-        private System.Windows.Forms.Button btnWriteText;
-        private System.Windows.Forms.Button btnTinhKC;
+        private System.Windows.Forms.Button btnTimTram;
+        private System.Windows.Forms.Panel pnlbitmap;
     }
 }
 
