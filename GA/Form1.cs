@@ -272,19 +272,21 @@ namespace GA
 
         private void btnTimTram_Click(object sender, EventArgs e)
         {
+            //Them khoang cach cua moi 2 tram trong quan the
             int n = trams.Count;
             for (int i = 0; i < n; i++)
-            {
-                for (int j = i + 1; j < n - 1; j++)
+                for (int j = 0; j < n; j++)
                 {
-                    Pair temp = new Pair();
-                    temp.tram1 = trams[i];
-                    temp.tram2 = trams[j];
-                    double khoangCach = KhoangCachHaiTram(trams[i], trams[j]);
-                    temp.KhoangCach = khoangCach;
-                    D.Add(temp);
+                    if (i!=j)
+                    {
+                        Pair temp = new Pair();
+                        temp.tram1 = trams[i];
+                        temp.tram2 = trams[j];
+                        double khoangCach = KhoangCachHaiTram(trams[i],trams[j]) ;
+                        temp.KhoangCach = khoangCach;
+                        D.Add(temp);
+                    }
                 }
-            }            
             n = D.Count;
             for (int i = 0; i < n; i++)
             {
@@ -295,6 +297,8 @@ namespace GA
                     DuavaoQuanThe(temp);//dua vao quan the cap tram thich nghi de lai ghep va dot bien
                 }
             }
+
+            //Ma hoa toa do cua cac cap trong quan the
             n = quanthe.Count;
             for(int i = 0; i<n; i++)
             {
@@ -302,13 +306,17 @@ namespace GA
                 MaHoaToaDo(quanthe[i].tram2);
             }
 
-            bool[] daxet = new bool[n+1];
-            for(int i = 0; i < n; i++) daxet[i] = false;
-
-            bool daTimduocConTotnhat = false;
-            Tram cha, me;
-            for(int k = 1; k < n; k++)
+            Boolean[] daxet = new Boolean[n];
+            for(int i = 0; i < n; i++)
             {
+                daxet[i] = false;
+            }
+
+            Boolean daTimduocConTotnhat = false;
+
+            for(int k = 1; k <= n; k++)
+            {
+                //Khoi tao id khong trung lap
                 Random random = new Random();
                 int id ;
                 do
@@ -317,15 +325,23 @@ namespace GA
                 } while (daxet[id] == true);
                 daxet[id] = true;
 
-                Boolean[] pos = new Boolean[17];
-                for (int i = 0; i < 17; i++) pos[i] = false;
-
-                cha = quanthe[id].tram1;
-                me = quanthe[id].tram2;
-                string kd_nst_cha = cha.getLongitude();
-                string vd_nst_cha = cha.getLatitude();
-                string kd_nst_me = me.getLongitude();
-                string vd_nst_me = me.getLatitude();
+                Tram con = new Tram();
+                List<Tram> _temp = new List<Tram>();
+                Boolean[] pos = new Boolean[n];
+                for (int i = 0; i < n; i++)
+                {
+                    pos[i] = false;
+                }
+                int dosaulap = 1;
+                do
+                {
+                    _temp.Clear();
+                    Tram cha = quanthe[id].tram1;
+                    Tram me = quanthe[id].tram2;
+                    string kd_nst_cha = cha.getLongitude();
+                    string vd_nst_cha = cha.getLatitude();
+                    string kd_nst_me = me.getLongitude();
+                    string vd_nst_me = me.getLatitude();
 
                 char temp;
                 char[] temp_kd_cha = kd_nst_cha.ToCharArray();
@@ -372,7 +388,7 @@ namespace GA
                     tc.DoCao = 27;
                     tc.setLatitude(vd_nst_cha);
                     tc.setLongitude(kd_nst_cha);
-                    if (!_temp.Contains(tc)) _temp.Add(tc);
+                    if (!_temp.Contains(tc)) _temp.Add(tc); //Them con vao
 
                     Tram tm = new Tram();
                     tm.DoCao = 27;
@@ -427,8 +443,7 @@ namespace GA
                     daTimduocConTotnhat = DieuKienDung(_temp);
                     dosaulap++;
 
-                } while ( (daTimduocConTotnhat == false) && dosaulap <17);
-
+                } while (daTimduocConTotnhat==false && dosaulap <=17);
                 if (daTimduocConTotnhat) return;
             }
             //xu ly mang tams
@@ -438,20 +453,7 @@ namespace GA
             {
                 if (tams[i].sotramtoidaphuduoc > tams[vt].sotramtoidaphuduoc) vt = i;
             }
-            if (!trams.Contains(tams[vt]))
-            {
-                Random rd = new Random();
-                tams[vt].MaTram = "3HP" + rd.Next(10000, 999999).ToString(); 
-                trams.Add(tams[vt]);
-                StreamWriter file = new StreamWriter(Application.StartupPath + @"\Outp.txt");
-                string temp = tams[vt].MaTram + ", " + tams[vt].Longitude + ", " + tams[vt].Latitude + ", " + tams[vt].DoCao + ", " + tams[vt].sotramtoidaphuduoc;
-                file.WriteLine(temp);
-                file.Close();
-                MessageBox.Show("Tìm kiếm tương đối thành công");
-         
-                //g.DrawEllipse(pen, AnhXaToaDoSangWinForm(temp1.Latitude), AnhXaToaDoSangWinForm(temp1.Longitude), (float)BanKinhPhu(temp1)*10, (float)BanKinhPhu(temp1)*10);
-                g.FillEllipse(Brushes.Green, AnhXaToaDoSangWinForm(tams[vt].Latitude), AnhXaToaDoSangWinForm(tams[vt].Longitude), 5, 5);
-            }
+            if(!trams.Contains(tams[vt])) trams.Add(tams[vt]);
 
         } 
 
